@@ -13,23 +13,20 @@
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="{{ .Title }}">
 	<meta name="twitter:description" content="{{ .Description }}">
-	<meta name="twitter:site" content="@yakczar">
-	<meta name="twitter:creator" content="@yakczar">
+	{{ if $.Site.Params.twitter }}
+	<meta name="twitter:site" content="@{{ $.Site.Params.twitter }}">
+	<meta name="twitter:creator" content="@{{ $.Site.Params.twitter }}">
+	{{ end }}
 	<!-- Open Graph general (Facebook, Pinterest & Google+) -->
 	<meta name="og:title" content="{{ .Title }}">
 	<meta name="og:description" content="{{ .Description }}">
 	<meta name="og:type" content="website">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script src="/js/caption.js"></script>
-
-<style>
-
-</style>
-
 </head>
+
 <body>
 
-<img src="https://analytics.schollz.com/1.png?page={{ .Permalink }}" width=1px height=1px style="float:right;">
 <header>
 	<a href="/">/posts</a>
 {{ range .Site.RegularPages }}
