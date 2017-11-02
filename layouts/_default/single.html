@@ -1,0 +1,32 @@
+{{ partial "header.html" . }}
+
+
+<div class="content">
+	<h1>{{ .Title }} <aside>{{ range .Params.tags }}<a href="/tags/{{.}}/" class="w3-tag">/{{.}}</a>&nbsp;{{end}} </aside></h1>
+	{{ .Content }}
+</div>
+
+
+{{ if (eq .Type "post") }}
+<footer>
+	<p><small><em>Written {{ .Date.Format "January 2, 2006"}}. </em>
+		{{ if $.Site.Params.twitter  }} 
+		Leave a comment for me on Twitter <a  href="https://twitter.com/intent/tweet?text=%40{{ $.Site.Params.twitter }}%20%23{{ replace (.URL) "/" "" }}%20">@{{ $.Site.Params.twitter }}</a>.
+		{{ end }}
+	</small></p>
+
+	<p>
+	{{ if .PrevInSection }}<a href="{{ .PrevInSection.URL }}">← {{ .PrevInSection.Title }}</a>&nbsp;{{end}}{{ if .NextInSection }}<a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }} →</a>{{ end }}
+	</p>
+
+</span>
+
+</footer>
+{{ end }}
+
+
+
+
+
+
+{{ partial "footer.html" . }}

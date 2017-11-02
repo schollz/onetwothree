@@ -1,0 +1,16 @@
+<div class="content">
+    {{ range first 100000 .Pages }}
+    {{ if eq .Type "post"}}
+        <p>
+        <aside>{{ .Date.Format "January 2, 2006"}} 
+            {{ if .Params.tags }}
+            /// <em>{{ range .Params.tags }}<a href="/tags/{{.}}/">{{.}}</a>&nbsp;{{end}}</em>
+            {{ end }}
+        </aside>
+        <a href="{{ if .Slug }}/{{ .Slug }}{{ else }}{{ .URL}}{{end}}">{{ .Title }}</a>
+        </p>
+    {{ end }}
+    {{ end }}
+</div>
+	
+

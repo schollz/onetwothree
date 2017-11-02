@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ .Title }}</title>
+	<!-- Search Engine -->
+	<meta name="description" content="{{ .Description }}">
+	<!-- Schema.org for Google -->
+	<meta itemprop="name" content="{{ .Title }}">
+	<meta itemprop="description" content="{{ .Description }}">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="{{ .Title }}">
+	<meta name="twitter:description" content="{{ .Description }}">
+	<meta name="twitter:site" content="@yakczar">
+	<meta name="twitter:creator" content="@yakczar">
+	<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+	<meta name="og:title" content="{{ .Title }}">
+	<meta name="og:description" content="{{ .Description }}">
+	<meta name="og:type" content="website">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="/js/caption.js"></script>
+
+<style>
+
+</style>
+
+</head>
+<body>
+
+<img src="https://analytics.schollz.com/1.png?page={{ .Permalink }}" width=1px height=1px style="float:right;">
+<header>
+	<a href="/">/posts</a>
+{{ range .Site.RegularPages }}
+	{{ if or (eq .Type "page") (eq .Type "about") }}
+	&nbsp;&nbsp;·&nbsp;<a href="{{ .RelPermalink }}" style="color:black;">/{{ .Title | lower }}</a>
+	{{ end }}
+{{ end }}
+
+{{ if .Draft }}
+DRAFT
+{{ end }}
+</header>
