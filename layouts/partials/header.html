@@ -29,10 +29,10 @@
 
 <header>
 	<a href="/">/posts</a>
-{{ range .Site.RegularPages }}
-	{{ if or (eq .Type "page") (eq .Type "about") }}
-	&nbsp;&nbsp;·&nbsp;<a href="{{ .RelPermalink }}" style="color:black;">/{{ .Title | lower }}</a>
-	{{ end }}
+{{ range $.Site.Params.navigation }}
+{{ with $.Site.GetPage "page" . }}
+&nbsp;&nbsp;·&nbsp;<a href="{{ lower .Permalink }}" style="color:black;">/{{ .Title }}</a>
+{{ end }}
 {{ end }}
 
 {{ if .Draft }}
