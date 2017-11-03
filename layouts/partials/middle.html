@@ -4,11 +4,7 @@
         <p>
         <aside>{{ .Date.Format "January 2, 2006"}} 
             {{ if .Params.tags }}
-            /// <em>
-{{ range $i, $e := .Params.tags }}
-    {{ if $i }}, {{ end }}
-    <a href="/tags/{{$e}}/">{{ $e }}</a>
-{{ end }}
+            /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
                 </em>
 
             {{ end }}
