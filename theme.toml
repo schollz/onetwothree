@@ -1,11 +1,11 @@
 # theme.toml template for a Hugo theme
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
-name = "portcullis"
+name = "onetwothree"
 license = "MIT"
-licenselink = "https://github.com/schollz/portcullis/blob/master/LICENSE.md"
-description = "A simple, elegant, mobile-ready, minimalistic theme"
-homepage = "https://github.com/schollz/portcullis"
+licenselink = "https://github.com/schollz/onetwothree/blob/master/LICENSE.md"
+description = "A elegant, mobile-ready, minimalistic theme that is easy as 1, 2, 3"
+homepage = "https://github.com/schollz/onetwothree"
 tags = ["minimal","mobile","responsive","elegant"]
 features = ["image captioning"]
 min_version = "0.27.1"
