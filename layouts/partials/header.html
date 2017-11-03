@@ -29,11 +29,9 @@
 
 <header>
 	<a href="/">/posts</a>
-{{ range $.Site.Params.navigation }}
-{{ with $.Site.GetPage "page" . }}
-&nbsp;&nbsp;·&nbsp;<a href="{{ lower .Permalink }}" style="color:black;">/{{ .Title }}</a>
-{{ end }}
-{{ end }}
+{{ range $.Site.Params.navigation }}{{ with $.Site.GetPage "page" . }}
+&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;">/{{ .Title }}</a>
+{{ end }}{{ end }}
 
 {{ if .Draft }}
 DRAFT
