@@ -6,7 +6,7 @@ It has some neat features like captioning images, but its best quality is its la
 
 Check out the demo at https://schollz.github.io/onetwothree/.
 
-![Screenshot of theme](/images/screenshot.png)
+![Screenshot of theme](https://raw.github.com/schollz/onetwothree/master/images/screenshot.png)
 
 
 # Using
