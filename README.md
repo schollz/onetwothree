@@ -4,6 +4,8 @@ onetwothree
 This is a  minimalistic, responsive theme that is simple as *one, two, three.* 
 It has some neat features like captioning images, but its best quality is its lack of features (no jQuery, no huge image banners, no post previews, no word counts, etc.) which I've always found unnecessary and thus cluttering.
 
+Check out the demo at https://schollz.github.io/onetwothree/.
+
 ![Screenshot of theme](/images/screenshot.png)
 
 
