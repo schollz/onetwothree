@@ -4,12 +4,12 @@ body, li  p {
 	font-family: 'Merriweather', serif;
 }
 
-h1,h2,h3,h4,h5,h6,header,header.a {
+h1,h2,h3,h4,h5,h6,header,header.a, footer, footer.a {
 	text-transform: lowercase;
 	font-family: 'Alegreya Sans SC', sans-serif;
 }
 
-header,header.a {
+header,header.a, footer, footer.a {
 	font-weight: bold;
 }
 
@@ -90,6 +90,12 @@ header {
 	display:block;
 	padding: 0.5rem 0 0.5rem 0;
 	border-bottom: 0.10em solid black;
+}
+
+footer {
+	display:block;
+	padding: 0.5rem 0 5.5rem 0;
+	border-top: 0.10em solid black;
 }
 
 @media all and (max-width:520px) {

@@ -1,3 +1,15 @@
+
+<header>
+<a href="/">/posts</a>
+{{ range $.Site.Params.navigation }}{{ with $.Site.GetPage "page" . }}
+&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;">/{{ .Title }}</a>
+{{ end }}{{ end }}
+
+{{ if .Draft }}
+DRAFT
+{{ end }}
+</header>
+
 <div class="content">
     {{ range first 100000 .Pages }}
     {{ if eq .Type "post"}}
