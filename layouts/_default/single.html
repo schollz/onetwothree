@@ -10,24 +10,17 @@ DRAFT
 </div>
 
 
-
-<header>
-	<a href="/">/posts</a>
-{{ range $.Site.Params.navigation }}{{ with $.Site.GetPage "page" . }}
-&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;">/{{ .Title }}</a>
-{{ end }}{{ end }}
-
-</header>
 <footer>
 {{ if (eq .Type "post") }}
 	<p><small><em>Written {{ .Date.Format "January 2, 2006"}}. </em>
 		{{ if $.Site.Params.twitter  }} 
-		Leave a comment for me on Twitter <a  href="https://twitter.com/intent/tweet?text=%40{{ $.Site.Params.twitter }}%20%23{{ replace (.URL) "/" "" }}%20">@{{ $.Site.Params.twitter }}</a>.
+		Send feedback to <a  href="https://twitter.com/intent/tweet?text=%40{{ $.Site.Params.twitter }}%20%23{{ replace (.URL) "/" "" }}%20">@{{ $.Site.Params.twitter }}</a>.
 		{{ end }}
 	</small></p>
 
 	<p>
-	{{ if .PrevInSection }}<a href="{{ .PrevInSection.URL }}">← {{ .PrevInSection.Title }}</a>&nbsp;{{end}}{{ if .NextInSection }}<a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }} →</a>{{ end }}
+	{{ if .PrevInSection }}<a href="{{ .PrevInSection.URL }}">← {{ .PrevInSection.Title }}</a>&nbsp;{{end}}
+	{{ if .NextInSection }}<a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }} →</a>{{ end }}
 	</p>
 {{ end }}
 
