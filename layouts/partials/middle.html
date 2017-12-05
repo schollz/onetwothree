@@ -1,8 +1,8 @@
 
 <header>
-<a href="/">/posts</a>
+<strong><a href="/" style="color:black;">/posts</a></strong>
 {{ range $.Site.Params.navigation }}{{ with $.Site.GetPage "page" . }}
-&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;">/{{ .Title }}</a>
+&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;"><strong>/{{ lower .Title }}</strong></a>
 {{ end }}{{ end }}
 
 {{ if .Draft }}
@@ -15,11 +15,11 @@ DRAFT
     {{ if eq .Type "post"}}
         <p>
         <aside>{{ .Date.Format "January 2, 2006"}} 
-            {{ if .Params.tags }}
+            <!--{{ if .Params.tags }}
             /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
                 </em>
 
-            {{ end }}
+            {{ end }}-->
         </aside>
         <a href="{{ .Permalink }}">{{ .Title }}</a>
         </p>

@@ -1,78 +1,139 @@
 body {
-font-family:0 next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
-line-height:1.15;
-max-width:30em;
-padding:4rem;
+    font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+    line-height: 1.15;
+    padding: 4rem;
+    box-sizing: border-box;
+    display: block;
 }
 
 h1 {
-font-size:2.25rem;
+    font-size: 3rem;
+    max-width: 34rem;
 }
 
 aside {
-letter-spacing:.05em;
-text-transform:uppercase;
-font-size:.875rem;
-color:#777;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    font-size: .875rem;
+    color: #777;
 }
 
 code {
--moz-hyphens:none;
--webkit-hyphens:none;
--o-hyphens:none;
--ms-hyphens:none;
-hyphens:none;
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    -o-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    white-space: pre-wrap;
+
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+
+    /* Opera 7 */
+    word-wrap: break-word;
+
+    /* Internet Explorer 5.5+ */
 }
 
 pre {
-background:#f5f7f9;
-margin-bottom:20px;
-vertical-align:text-bottom;
-white-space:0;
-word-wrap:break-word;
-padding:1em;
+    background: #f5f7f9;
+    margin-bottom: 20px;
+    vertical-align: text-bottom;
+    white-space: pre-wrap;
+
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+
+    /* Opera 7 */
+    word-wrap: break-word;
+
+    /* Internet Explorer 5.5+ */
+    padding: 1em;
+    max-width: 44em;
 }
 
-a {
-text-decoration:none;
+a, a:visited {
+    text-decoration: none;
+    color: #357edd;
+}
+
+a:hover {
+    color: #777;
+}
+
+a:focus {
+    color: #777;
 }
 
 img {
-width:100%;
-text-align:center;
+    width: 100%;
+    display: block;
+    vertical-align: top;
+    text-align: center;
 }
 
 figcaption {
-color:#777;
-font-style:italic;
-text-align:center;
+    color: #777;
+    font-style: italic;
+    text-align: center;
 }
 
-figure {
-display:block;
--webkit-margin-before:1em;
--webkit-margin-after:1em;
--webkit-margin-start:0;
--webkit-margin-end:0;
+table {
+    max-width: 30em;
 }
 
-ol,ul,li {
-line-height:1.3;
+ol, ul, li, p {
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    max-width: 30rem;
 }
 
-p {
-max-width:30em;
-display:block;
--webkit-margin-before:1em;
--webkit-margin-after:1em;
--webkit-margin-start:0;
--webkit-margin-end:0;
-line-height:1.5;
- font-size: 1.25rem;
+@media screen and (min-width: 30em) and (max-width: 60em) {
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    ol, ul, li, p {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 30em) and (max-width: 40em) {
+    body {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    ol, ul, li, p {
+        font-size: 1.1rem;
+    }
 }
 
 @media all and (max-width: 30em) {
-body {
-padding:1rem;
-}
+    body {
+        padding: 0.875rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
 }
