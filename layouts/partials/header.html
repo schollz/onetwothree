@@ -26,3 +26,6 @@
 </head>
 
 <body>
+	{{ if $.Site.Params.analytics }}
+<img src="https://analytics.schollz.com/1.png?page={{ .Permalink }}" width=1px height=1px style="float:right;">
+{{ end }}
