@@ -11,6 +11,10 @@ h1 {
     max-width: 34rem;
 }
 
+h2 {
+    margin-top: 2em;
+}
+
 aside {
     letter-spacing: -0.05em;
     text-transform: uppercase;
