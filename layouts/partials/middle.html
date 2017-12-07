@@ -21,7 +21,8 @@ DRAFT
 
             {{ end }}-->
         </aside>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <a href="{{ .Permalink }}" style="color:black;">{{ .Title }}</a>{{ if .Draft }} <span style="color:blue;">(unpublished)</span>
+{{ end }}
         </p>
     {{ end }}
     {{ end }}
