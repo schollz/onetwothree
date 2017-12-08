@@ -6,6 +6,27 @@ body {
     display: block;
 }
 
+hr {
+    max-width: 4rem;
+    margin-left: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-width: .125rem;
+    border-color: rgba(0, 0, 0, .1);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: .5rem;
+}
+
+dd {
+    margin-left: 0;
+}
+
 h1 {
     font-size: 3rem;
     max-width: 34rem;
@@ -99,7 +120,7 @@ table {
     max-width: 30em;
 }
 
-ol, ul, li, p {
+ol, ul, li, p,dd {
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0;
@@ -114,7 +135,7 @@ ol, ul, li, p {
         font-size: 2.25rem;
     }
 
-    ol, ul, li, p {
+    ol, ul, li, p, dd {
         font-size: 1.2rem;
     }
 }
@@ -128,7 +149,7 @@ ol, ul, li, p {
         font-size: 2.25rem;
     }
 
-    ol, ul, li, p {
+    ol, ul, li, p, dd {
         font-size: 1.1rem;
     }
 }
