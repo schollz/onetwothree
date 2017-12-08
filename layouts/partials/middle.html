@@ -1,9 +1,6 @@
 
 <header>
-<strong><a href="/" style="color:black;">/posts</a></strong>
-{{ range $.Site.Params.navigation }}{{ with $.Site.GetPage "page" . }}
-&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;"><strong>/{{ lower .Title }}</strong></a>
-{{ end }}{{ end }}
+{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:black;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
 
 {{ if .Draft }}
 DRAFT
