@@ -1,34 +1,5 @@
 {{ partial "header.html" . }}
 
-
-<header>
-<strong><a href="/" style="color:black;">/posts</a></strong>
-{{ range $.Site.Params.navigation }}{{ with $.Site.GetPage "page" . }}
-&nbsp;·&nbsp;&nbsp;<a href="{{ lower .Permalink }}" style="color:black;"><strong>/{{ lower .Title }}</strong></a>
-{{ end }}{{ end }}
-
-{{ if .Draft }}
-DRAFT
-{{ end }}
-</header>
-
-<div class="content">
-    {{ range first 100000 .Pages }}
-    {{ if eq .Type "post"}}
-        <p>
-        <aside>{{ .Date.Format "January 2, 2006"}} 
-            <!--{{ if .Params.tags }}
-            /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
-                </em>
-
-            {{ end }}-->
-        </aside>
-        <a href="{{ .Permalink }}" style="color:black;">{{ .Title }}</a>{{ if .Draft }} <span style="color:#FF4136;">(unpublished)</span>
-{{ end }}
-        </p>
-    {{ end }}
-    {{ end }}
-</div>
-
+{{ partial "middle.html" . }}
 
 {{ partial "footer.html" . }}

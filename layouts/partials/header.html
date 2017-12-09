@@ -38,3 +38,11 @@
 	{{ if $.Site.Params.analytics }}
 <img src="https://analytics.schollz.com/1.png?page={{ .Permalink }}" width=1px height=1px style="float:right;">
 {{ end }}
+
+<header>
+    <a href="/" style="color:#CCCCCC;"><strong>Posts</strong></a>{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i -1}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#CCCCCC;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
+
+{{ if .Draft }}
+DRAFT
+{{ end }}
+</header>
