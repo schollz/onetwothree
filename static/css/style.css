@@ -13,8 +13,7 @@ hr {
     border-bottom-width: 1px;
     border-width: .125rem;
     border-color: rgba(0, 0, 0, .1);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 3rem;
 }
 
 dt {
@@ -127,7 +126,7 @@ ol, ul, li, p,dd {
     -webkit-margin-end: 0;
     line-height: 1.5;
     font-size: 1.25rem;
-    max-width: 30rem;
+    max-width: 34rem;
 }
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
@@ -137,6 +136,7 @@ ol, ul, li, p,dd {
 
     ol, ul, li, p, dd {
         font-size: 1.2rem;
+        max-width: 30rem;
     }
 }
 
