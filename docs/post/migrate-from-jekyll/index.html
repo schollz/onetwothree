@@ -3,40 +3,95 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>Migrate to Hugo from Jekyll</title>
 	
 	<meta name="description" content="">
+	<meta name="image" content="">
 	
 	<meta itemprop="name" content="Migrate to Hugo from Jekyll">
 	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
 	
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Migrate to Hugo from Jekyll">
 	<meta name="twitter:description" content="">
+	<meta name="twitter:site" content="@yakczar">
+	<meta name="twitter:creator" content="@yakczar">
+	<meta name="twitter:image:src" content="">
 	
 	
 	<meta name="og:title" content="Migrate to Hugo from Jekyll">
 	<meta name="og:description" content="">
-	<meta name="og:type" content="website">
-	<link rel="stylesheet" type="text/css" href="https://schollz.github.io/onetwothree/css/style.css">
-	<script src="https://schollz.github.io/onetwothree/js/caption.js"></script>
+	
+	<meta name="og:url" content="http://schollz.github.io/onetwothree/post/migrate-from-jekyll/">
+	<meta name="og:site_name" content="Migrate to Hugo from Jekyll">
+	<meta name="og:type" content="article">
+	
+	<meta name="article:author" content="yakczar">
+	<meta name="article:tag" content="">
+	<link rel="stylesheet" type="text/css" href="http://schollz.github.io/onetwothree/css/style.css">
+	<script src="http://schollz.github.io/onetwothree/js/caption.js"></script>
 </head>
 
 <body>
+	
 
-<header>
-	<a href="https://schollz.github.io/onetwothree/">/posts</a>
-
-&nbsp;·&nbsp;&nbsp;<a href="https://schollz.github.io/onetwothree/about/" style="color:black;">/About Hugo</a>
-
+<header style="color:#CCCCCC;">
+    <a href="http://schollz.github.io/onetwothree/" style="color:#CCCCCC;"><strong>Posts</strong></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="http://schollz.github.io/onetwothree/about/" style="color:#CCCCCC;"><strong>About Hugo</strong></a>
 
 
 </header>
 
+<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
+<script>
+function fadeOut(el) {
+  el.style.opacity = 1;
 
+  var last = +new Date();
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+    last = +new Date();
+    
+
+    if (el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    } else {
+    	el.style.display='none';
+    }
+  };
+
+  tick();
+}
+
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+         el = document.getElementById('loadingMask');
+         fadeOut(el);
+        var elements = document.querySelectorAll("img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("alt")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("alt"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+window.onload = ready;
+</script>
 
 <div class="content">
-	<h1>Migrate to Hugo from Jekyll <aside> </aside></h1>
+	<h1>Migrate to Hugo from Jekyll <aside></aside></h1>
 	
 
 <h2 id="move-static-content-to-static">Move static content to <code>static</code></h2>
@@ -61,7 +116,7 @@ With Jekyll, something that looked like</p>
 
 <h2 id="create-your-hugo-configuration-file">Create your Hugo configuration file</h2>
 
-<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="https://schollz.github.io/onetwothree/overview/configuration/">Hugo configuration documentation</a> for details.</p>
+<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="http://schollz.github.io/onetwothree/overview/configuration/">Hugo configuration documentation</a> for details.</p>
 
 <h2 id="set-your-configuration-publish-folder-to-site">Set your configuration publish folder to <code>_site</code></h2>
 
@@ -87,13 +142,13 @@ git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
 
 <h2 id="convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</h2>
 
-<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="https://schollz.github.io/onetwothree/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
+<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="http://schollz.github.io/onetwothree/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
 
 <p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
 
 <h2 id="convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</h2>
 
-<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="https://schollz.github.io/onetwothree/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
+<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="http://schollz.github.io/onetwothree/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
 
 <h3 id="implementation">Implementation</h3>
 
@@ -209,22 +264,21 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 </div>
 
 
-
 <footer>
+
 	<p><small><em>Written March 10, 2014. </em>
+		 
+		Send feedback to <a  href="https://twitter.com/intent/tweet?text=%40yakczar%20%23postmigrate-from-jekyll%20">@yakczar</a>.
 		
 	</small></p>
 
 	<p>
-	<a href="https://schollz.github.io/onetwothree/post/goisforlovers/">← (Hu)go Template Primer</a>&nbsp;<a href="https://schollz.github.io/onetwothree/post/creating-a-new-theme/" style="float:right;">Creating a New Theme →</a>
+	<a href="http://schollz.github.io/onetwothree/post/goisforlovers/">← (Hu)go Template Primer</a>&nbsp;
+	<a href="http://schollz.github.io/onetwothree/post/creating-a-new-theme/" style="float:right;">Creating a New Theme →</a>
 	</p>
 
-</span>
 
 </footer>
-
-
-
 
 
 

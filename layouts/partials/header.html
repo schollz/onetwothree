@@ -30,7 +30,7 @@
 	<!-- Open Graph - Article -->
 	<meta name="article:author" content="{{ $.Site.Params.twitter }}">
 	<meta name="article:tag" content="{{ range .Params.tags }}{{.}} {{end}}">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/style{{ $.Site.Params.style }}.css">
 	<script src="/js/caption.js"></script>
 </head>
 

@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6,header,header.a {
 	font-family: 'Alegreya Sans SC', sans-serif;
 }
 
-header,header.a {
+header,header.a{
 	font-weight: bold;
 }
 
@@ -92,6 +92,11 @@ header {
 	border-bottom: 0.10em solid black;
 }
 
+footer {
+	display:block;
+	padding: 0.5rem 0 5.5rem 0;
+}
+
 @media all and (max-width:520px) {
     div.content { 
     	padding: 0;
@@ -171,6 +176,7 @@ table th {
 
 img {
 	width: 100%;
+	border-radius: 25px;
 }
 
 
