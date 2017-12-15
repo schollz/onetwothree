@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Hugo Themes</title>
-    <link>http://schollz.github.io/onetwothree/tags/hugo/</link>
+    <link>https://schollz.github.io/onetwothree/tags/hugo/</link>
     <description>Recent content in Hugo on Hugo Themes</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
     <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://schollz.github.io/onetwothree/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://schollz.github.io/onetwothree/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>http://schollz.github.io/onetwothree/post/hugoisforlovers/</link>
+      <link>https://schollz.github.io/onetwothree/post/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://schollz.github.io/onetwothree/post/hugoisforlovers/</guid>
+      <guid>https://schollz.github.io/onetwothree/post/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo
