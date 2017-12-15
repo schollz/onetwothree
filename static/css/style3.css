@@ -28,7 +28,7 @@ dd {
 
 h1 {
     font-size: 3rem;
-    max-width: 34rem;
+    max-width: 38rem;
 }
 
 h2 {
@@ -126,7 +126,7 @@ ol, ul, li, p,dd {
     -webkit-margin-end: 0;
     line-height: 1.5;
     font-size: 1.25rem;
-    max-width: 34rem;
+    max-width: 38rem;
 }
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
@@ -136,7 +136,7 @@ ol, ul, li, p,dd {
 
     ol, ul, li, p, dd {
         font-size: 1.2rem;
-        max-width: 30rem;
+        max-width: 34rem;
     }
 }
 
