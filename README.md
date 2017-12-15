@@ -24,11 +24,14 @@ Add these parameters to your configuration file:
 [params]
     twitter = "yakczar"
     navigation = ["about.md"]
+    style = ""
 ```
 
 The `twitter` parameter will put a footer on your pages on how to contact you (with the subject being the page URL) to comment on the page.
 
 The `navigation` parameter will pick which pages to list at the top bar. I'm aware that the template HTML could just loop through the pages, but I've found that this method is 120x faster, which is useful when you have thousands of posts.
+
+The `style` parameter can be changed to `"2"` or `"3"` to use different styles.
 
 # License
 
