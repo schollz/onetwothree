@@ -44,7 +44,7 @@ footer, footer p {
     max-width: 38rem;
 }
 
-header, header a {
+header {
     clear: both;
     color: #777;
     text-align: right;
@@ -53,11 +53,11 @@ header, header a {
     border-width: 3px;
     border-color: #777;
     padding: 1rem;
-    background-color: #CCCCCC;
-}
+/*    background-color: #CCCCCC;
+*/}
 
 header a:hover {
-     background-color:white
+     background-color:#CCCCCC;
 }
 
 header {
