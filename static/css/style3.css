@@ -12,7 +12,7 @@ hr {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-width: .125rem;
-    border-color: rgba(0, 0, 0, .1);
+    border-color: rgba(0, 0, 0, 0.1);
     margin-top: 3rem;
 }
 
@@ -35,18 +35,35 @@ h2 {
     margin-top: 2em;
 }
 
-footer,footer p {
-  color: #666;
-  font-size: .9em;
-  padding: 1em 1em 2em;
-  text-align: right;
-  padding: 0;
-  max-width: 38rem;
+footer, footer p {
+    color: #666;
+    font-size: .9em;
+    padding: 1em 1em 2em;
+    text-align: right;
+    padding: 0;
+    max-width: 38rem;
+}
+
+header, header a {
+    clear: both;
+    color: #777;
+    text-align: right;
+    max-width: 38rem;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #777;
+    padding: 1rem;
+    background-color: #CCCCCC;
+}
+
+header a:hover {
+     background-color:white
 }
 
 header {
-    color:#CCCCCC;text-align:right;max-width: 38rem;
+    margin-bottom: 3rem;
 }
+
 aside {
     letter-spacing: -0.05em;
     text-transform: uppercase;
@@ -118,7 +135,7 @@ img {
     width: 100%;
     display: block;
     vertical-align: top;
-    border-radius: 15px;
+    border-radius: 51px;
     text-align: center;
 }
 
@@ -129,19 +146,18 @@ figcaption {
 }
 
 figure {
-  margin: 0 -1em;
-  width:110%;
-  margin-top: 3.0em;
-  display: block;
-  border: 0px solid #303030;
+    margin: 0 -1em;
+    width: 110%;
+    margin-top: 3.0em;
+    display: block;
+    border: 0px solid #303030;
 }
-
 
 table {
     max-width: 30em;
 }
 
-ol, ul, li, p,dd {
+ol, ul, li, p, dd {
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0;
@@ -184,5 +200,4 @@ ol, ul, li, p,dd {
     h1 {
         font-size: 1.5rem;
     }
-
 }

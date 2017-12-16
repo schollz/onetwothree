@@ -40,9 +40,10 @@
 {{ end }}
 
 
+
 <header >
-	<a href="/" style="float: left;color:#CCCCCC;"><strong>{{ $.Site.Title }}</strong></a>
-	{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#CCCCCC;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
+	<a href="/" style="float: left;color:#777;"><strong>{{ $.Site.Title }}</strong></a>
+	{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#777;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
 
 {{ if .Draft }}
 DRAFT
