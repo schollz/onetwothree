@@ -39,8 +39,10 @@
 <img src="https://analytics.schollz.com/1.png?page={{ .Permalink }}" width=1px height=1px style="float:right;">
 {{ end }}
 
-<header style="color:#CCCCCC;">
-    <a href="/" style="color:#CCCCCC;"><strong>Posts</strong></a>{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i -1}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#CCCCCC;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
+
+<header >
+	<a href="/" style="float: left;color:#CCCCCC;"><strong>{{ $.Site.Title }}</strong></a>
+	{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#CCCCCC;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
 
 {{ if .Draft }}
 DRAFT

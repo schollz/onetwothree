@@ -35,6 +35,18 @@ h2 {
     margin-top: 2em;
 }
 
+footer,footer p {
+  color: #666;
+  font-size: .9em;
+  padding: 1em 1em 2em;
+  text-align: right;
+  padding: 0;
+  max-width: 38rem;
+}
+
+header {
+    color:#CCCCCC;text-align:right;max-width: 38rem;
+}
 aside {
     letter-spacing: -0.05em;
     text-transform: uppercase;
@@ -106,6 +118,7 @@ img {
     width: 100%;
     display: block;
     vertical-align: top;
+    border-radius: 15px;
     text-align: center;
 }
 
@@ -114,6 +127,15 @@ figcaption {
     font-style: italic;
     text-align: center;
 }
+
+figure {
+  margin: 0 -1em;
+  width:110%;
+  margin-top: 3.0em;
+  display: block;
+  border: 0px solid #303030;
+}
+
 
 table {
     max-width: 30em;
@@ -162,4 +184,5 @@ ol, ul, li, p,dd {
     h1 {
         font-size: 1.5rem;
     }
+
 }
