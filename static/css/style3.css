@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
 body {
-    font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+    font-family: 'Varela Round',-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
     line-height: 1.15;
     padding: 4rem;
     box-sizing: border-box;
     display: block;
 }
 
+a {
+border-bottom: 1px solid #000;
+text-decoration: none;
+color: #000;
+}
 hr {
     max-width: 4rem;
     margin-left: 0;
@@ -38,12 +45,15 @@ h2 {
 footer, footer p {
     color: #666;
     font-size: .9em;
-    padding: 1em 1em 2em;
+    padding: 1em 1em 4em;
     text-align: right;
     padding: 0;
     max-width: 38rem;
 }
 
+footer {
+	margin-top: 4em;
+}
 header {
     clear: both;
     color: #777;
@@ -56,6 +66,9 @@ header {
 /*    background-color: #CCCCCC;
 */}
 
+header a {
+     border: none;
+}
 header a:hover {
      background-color:#CCCCCC;
 }
@@ -118,10 +131,6 @@ pre {
     max-width: 44em;
 }
 
-a, a:visited {
-    text-decoration: none;
-    color: #357edd;
-}
 
 a:hover {
     color: #777;
@@ -162,7 +171,7 @@ ol, ul, li, p, dd {
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
-    line-height: 1.5;
+    line-height: 1.77;
     font-size: 1.25rem;
     max-width: 38rem;
 }
