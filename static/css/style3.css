@@ -8,6 +8,8 @@ body {
     display: block;
 }
 
+
+
 a {
 border-bottom: 1px solid #000;
 text-decoration: none;
@@ -209,4 +211,9 @@ ol, ul, li, p, dd {
     h1 {
         font-size: 1.5rem;
     }
+}
+
+
+li {
+    margin: 2px;
 }
