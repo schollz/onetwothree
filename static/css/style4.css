@@ -177,8 +177,9 @@ figcaption {
 }
 
 figure {
+	margin:0;
     display: block;
-    border: 0px solid #303030;
+    /* border: 0.5px solid #303030; */
 }
 
  a {border-bottom: 1px solid #444444; color: #444444; text-decoration: none;}
@@ -193,4 +194,89 @@ body {
 
 h1,h2,h3 {
 	line-height:1.2;
+}
+
+
+
+code {
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    -o-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    white-space: pre-wrap;
+
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+
+    /* Opera 7 */
+    word-wrap: break-word;
+
+    /* Internet Explorer 5.5+ */
+}
+
+pre {
+    background: #f5f7f9;
+    margin-bottom: 20px;
+    vertical-align: text-bottom;
+    white-space: pre-wrap;
+
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+
+    /* Opera 7 */
+    word-wrap: break-word;
+
+    /* Internet Explorer 5.5+ */
+    padding: 1em;
+	max-width: 44em;
+	text-shadow: none;
+}
+
+pre .ascii {
+	background-color:transparent;
+}
+
+blockquote {
+	font-style: italic;
+	background: #f9f9f9;
+	border-left: 10px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019";
+  }
+  blockquote:before {
+	color: #ccc;
+	content: open-quote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+  }
+  blockquote p {
+	display: inline;
+  }
+
+  h1 {
+	font-size: 1.6em;
+}  
+h2 {
+	font-size: 1.3em;
+}
+
+  
+h3 {
+	font-size: 1.1em;
 }
