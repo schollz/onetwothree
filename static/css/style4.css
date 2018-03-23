@@ -100,7 +100,7 @@ table.blogtitles {
 
 .wtblog {
 	display: table;
-	max-width: 60em;
+	max-width: 50em;
 	margin-left: auto;	margin-right: auto;
 }
 .maintext {
@@ -181,18 +181,16 @@ figure {
     border: 0px solid #303030;
 }
 
-a:hover {
-    color: #777;
-	border-bottom: 1px solid #777;
+ a {border-bottom: 1px solid #444444; color: #444444; text-decoration: none;}
+            a:hover {border-bottom: 0;}
+
+body {
+	background: #fdfdfd; 
+	color: #222222;
+	line-height: 1.3;
+	text-shadow: 0 1px 0 #ffffff; 
 }
 
-a:focus {
-    color: #777;
-	border-bottom: 1px solid #777;
-}
-
-a {
-	border-bottom: 1px solid #3366BB ;
-	text-decoration: none;
-	color: #3366BB ;
+h1,h2,h3 {
+	line-height:1.2;
 }
