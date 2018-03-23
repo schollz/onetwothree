@@ -2,73 +2,128 @@
 
 <div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
 <script>
-function fadeOut(el) {
-  el.style.opacity = 1;
+    function fadeOut(el) {
+        el.style.opacity = 1;
 
-  var last = +new Date();
-  var tick = function() {
-    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
-    last = +new Date();
-    // console.log(el.style.opacity);
+        var last = +new Date();
+        var tick = function () {
+            el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
+            last = +new Date();
+            // console.log(el.style.opacity);
 
-    if (el.style.opacity > 0) {
-      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-    } else {
-    	el.style.display='none';
-    }
-  };
-
-  tick();
-}
-
-function ready(fn) {
-    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
-         el = document.getElementById('loadingMask');
-         fadeOut(el);
-        var elements = document.querySelectorAll("img");
-        Array.prototype.forEach.call(elements, function(el, i) {
-            if (el.getAttribute("alt")) {
-                const caption = document.createElement('figcaption');
-                var node = document.createTextNode(el.getAttribute("alt"));
-                caption.appendChild(node);
-                const wrapper = document.createElement('figure');
-                wrapper.className = 'image';
-                el.parentNode.insertBefore(wrapper, el);
-                el.parentNode.removeChild(el);
-                wrapper.appendChild(el);
-                wrapper.appendChild(caption);
+            if (el.style.opacity > 0) {
+                (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+            } else {
+                el.style.display = 'none';
             }
-        });
+        };
 
-    } else {
-        document.addEventListener('DOMContentLoaded', fn);
+        tick();
     }
-}
-window.onload = ready;
+
+    function ready(fn) {
+        if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+            el = document.getElementById('loadingMask');
+            fadeOut(el);
+            var elements = document.querySelectorAll("img");
+            Array.prototype.forEach.call(elements, function (el, i) {
+                if (el.getAttribute("alt")) {
+                    const caption = document.createElement('figcaption');
+                    var node = document.createTextNode(el.getAttribute("alt"));
+                    caption.appendChild(node);
+                    const wrapper = document.createElement('figure');
+                    wrapper.className = 'image';
+                    el.parentNode.insertBefore(wrapper, el);
+                    el.parentNode.removeChild(el);
+                    wrapper.appendChild(el);
+                    wrapper.appendChild(caption);
+                }
+            });
+
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
+        }
+    }
+    window.onload = ready;
 </script>
 
-<div class="content">
-	<h1>{{ .Title }} <aside>{{ range .Params.tags }}<a href="/tags/{{.}}/" class="w3-tag">/{{.}}</a>&nbsp;&nbsp;&nbsp;{{end}}</aside></h1>
-	{{ .Content }}
+
+
+
+<div id="documentbody">
+    <div class="wtblog">
+        <div class="maintext">
+            <div class="wikitext titlehack">
+                <h2>{{ .Title }}</h2>
+                <div class="posttitle" style="opacity: 0.6;">
+                    <small>{{ .Date.Format "January 2, 2006"}}</small>
+                </div>
+            </div>
+            <div class="wikitext">
+                {{ .Content }}
+            </div>
+
+            <small>Written on
+                <a href="/~cks/space/blog/2018/03/18/">{{ .Date.Format "2"}}</a>
+                <a href="/~cks/space/blog/2018/03/">{{ .Date.Format "January"}}</a>
+                <a href="/~cks/space/blog/2018/">{{ .Date.Format "2006"}}</a>.</small>
+            <br>
+            <table border=0 width="100%">
+                <tr>
+                    <td width="50%" style="padding-right: 0.5em">
+                        <table>
+                            <tr>
+                                <td> &laquo; </td>
+                                <td>
+                                        {{ if .PrevInSection }}
+                                        <a href="{{ .PrevInSection.URL }}">{{ .PrevInSection.Title }}</a>&nbsp;{{end}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="50%" style="padding-left: 0.5em; border-left: 1px dotted;">
+                        <table>
+                            <tr>
+                                <td>
+                                        {{ if .NextInSection }}
+                                        <a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }}</a>{{ end }}
+                                </td>
+                                <td> &raquo; </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="sidebar">
+            <div class="readme">
+                <div class="wikitext">
+                    <!-- <p>These are my
+                        <a href="/~cks/space/blog/">WanderingThoughts</a>
+                        <br> (
+                        <a href="/~cks/space/AboutBlog">About the blog</a>)
+                    </p> -->
+                    <p>
+                        <a href="/">Full index of entries</a>
+                    </p>
+                    <p>Twitter:
+                        <a href="https://twitter.com/yakczar/">@yakczar</a>
+                    </p>
+                    <p align="center">* * *</p>
+                    <p>Categories:
+                            {{ range $i, $e := .Params.Tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
+                    </p>
+                    
+                </div>
+            </div>
+            <div class="sidesearch" style="font-size: small">
+                    <form onsubmit="location.href='/search/?s=' + document.getElementById('myInput').value; return false;">
+                        Search: <input type="text" id="myInput"  size=15 />
+                      </form>
+                </div>
+        </div>
+    </div>
 </div>
-
-
-
-{{ if (eq .Type "post") }}
-	<p><small><em>Written {{ .Date.Format "January 2, 2006"}}. </em>
-		{{ if $.Site.Params.twitter  }} 
-		Send feedback to <a  href="https://twitter.com/intent/tweet?text=%40{{ $.Site.Params.twitter }}%20%23{{ replace (.URL) "/" "" }}%20">@{{ $.Site.Params.twitter }}</a>.
-		{{ end }}
-	</small></p>
-
-	<p>
-	{{ if .PrevInSection }}<a href="{{ .PrevInSection.URL }}">← {{ .PrevInSection.Title }}</a>&nbsp;{{end}}
-	{{ if .NextInSection }}<a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }} →</a>{{ end }}
-	</p>
-{{ end }}
-
-
-
-
+<hr> 
 
 {{ partial "footer.html" . }}

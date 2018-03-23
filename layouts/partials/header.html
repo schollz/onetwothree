@@ -37,15 +37,21 @@
 {{ if $.Site.Params.analytics }}
 <img src="https://analytics.schollz.com/1.png?page={{ .Permalink }}" width=1px height=1px style="float:right;">
 {{ end }}
-<header >
-	<a href="/" style="float: left;color:#777;"><strong>{{ $.Site.Title }}</strong>
-	</a>
-	<a href="/index.xml" style="color:#777;float: left;"><strong>
-		&nbsp;
-	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
-</strong></a>
-{{ range $i, $e:= $.Site.Params.navigation }}{{ if eq $i 0}}{{else}}&nbsp;&nbsp;·&nbsp;&nbsp;{{end}}{{ with $.Site.GetPage "page" . }}<a href="{{ lower .Permalink }}" style="color:#777;"><strong>{{ title .Title }}</strong></a>{{ end }}{{ end }}
-{{ if .Draft }}
-DRAFT
-{{ end }}
-</header>
+
+<div id="header">
+        <div class="left">
+            <a href="/">Zack&#39;s Notablog</a>        </div>
+        <div class="right">
+            <a href="/index.xml" style="color:#777;float: left;">
+                <strong>
+                    &nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </strong>
+            </a>
+        </div>
+    </div>

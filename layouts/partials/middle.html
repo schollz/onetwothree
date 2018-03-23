@@ -1,22 +1,64 @@
 
-
-
-<div class="content">
-<h1>{{ title .Data.Term  }} posts</h1>
-    {{ range first 100000 .Pages }}
-    {{ if eq .Type "post"}}
-        <p>
-        <aside>{{ .Date.Format "January 2, 2006"}} 
-            <!--{{ if .Params.tags }}
-            /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
-                </em>
-
-            {{ end }}-->
-        </aside>
-        <a href="{{ .Permalink }}" style="color:black;">{{ .Title }}</a>{{ if .Draft }} <span style="color:#FF4136;">(unpublished)</span>
-{{ end }}
-        </p>
-    {{ end }}
-    {{ end }}
-</div>
-
+<div id="documentbody">
+        <div class="wtblog">
+            <div class="maintext">
+                <div class="wikitext titlehack">
+                    <h2>{{ title .Data.Term  }} posts</h2>
+                </div>
+                <div class="wikitext">
+                        {{ range first 100000 .Pages }}
+                        {{ if eq .Type "post"}}
+                            <p>
+                            <aside>{{ .Date.Format "January 2, 2006"}} 
+                                <!--{{ if .Params.tags }}
+                                /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
+                                    </em>
+                    
+                                {{ end }}-->
+                            </aside>
+                            <a href="{{ .Permalink }}" style="color:black;">{{ .Title }}</a>{{ if .Draft }} <span style="color:#FF4136;">(unpublished)</span>
+                    {{ end }}
+                            </p>
+                        {{ end }}
+                        {{ end }}
+                </div>
+    
+        
+            </div>
+            <div class="sidebar">
+                <div class="readme">
+                    <div class="wikitext">
+                        <!-- <p>These are my
+                            <a href="/~cks/space/blog/">WanderingThoughts</a>
+                            <br> (
+                            <a href="/~cks/space/AboutBlog">About the blog</a>)
+                        </p> -->
+                        <p>
+                            <a href="/">Full index of entries</a>
+                        </p>
+                        <p>Twitter:
+                            <a href="https://twitter.com/yakczar/">@yakczar</a>
+                        </p>
+                        <p align="center">* * *</p>
+                        <p>
+<pre>
+     /\___/\
+    ( o   o )
+    (  =^=  )
+    (        )
+    (         )
+    (          )))))))))))
+       
+</pre>
+                        </p>
+                    </div>
+                </div>
+                <div class="sidesearch" style="font-size: small">
+                    <form onsubmit="location.href='/search/?s=' + document.getElementById('myInput').value; return false;">
+                        Search: <input type="text" id="myInput"  size=15 />
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr> 
