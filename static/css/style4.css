@@ -284,3 +284,34 @@ h3 {
 .posttitle {
 	color: #aaaaaa;
 }
+
+table { 
+	margin-bottom: 1.5em;
+	border-collapse: collapse;
+	width: 95%;
+}
+
+table tr + tr {
+	border-top: 1px solid #ccc;
+}
+table td + td {
+	border-left: 1px solid #ccc;
+}
+
+table td {
+	padding: 0.4em;
+	text-align: center;
+	-moz-hyphens: none;
+	-webkit-hyphens: none;
+	-o-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+table th {
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 95%;
+	padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+	line-height: 1.05;
+}
