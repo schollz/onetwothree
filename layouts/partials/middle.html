@@ -25,50 +25,7 @@
     
         
             </div>
-            <div class="sidebar">
-                <div class="readme">
-                    <div class="wikitext">
-                        <!-- <p>These are my
-                            <a href="/~cks/space/blog/">WanderingThoughts</a>
-                            <br> (
-                            <a href="/~cks/space/AboutBlog">About the blog</a>)
-                        </p> -->
-                        <p>
-                            <a href="/">Full index of entries</a>
-                        </p>
-                        <p>Twitter:
-                            <a href="https://twitter.com/yakczar/">@yakczar</a>
-                        </p>
-                        <p>
-                            RSS: <a href="/index.xml"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss">
-                                        <path d="M4 11a9 9 0 0 1 9 9"></path>
-                                        <path d="M4 4a16 16 0 0 1 16 16"></path>
-                                        <circle cx="5" cy="19" r="1"></circle>
-                                    </svg>
-                            </a>
-                    </p>
-                        <p align="center">* * *</p>
-                        <p>
-<pre>
-     /\___/\
-    ( o   o )
-    (  =^=  )
-    (        )
-    (         )
-    (          )))))))))))
-       
-</pre>
-                        </p>
-                    </div>
-                </div>
-                <div class="sidesearch" style="font-size: small">
-                    <form onsubmit="location.href='/search/?s=' + document.getElementById('myInput').value; return false;">
-                        Search: <input type="text" id="myInput"  size=15 />
-                      </form>
-                </div>
-            </div>
+            {{ partial "sidebar.html" . }}
         </div>
     </div>
     <hr> 
