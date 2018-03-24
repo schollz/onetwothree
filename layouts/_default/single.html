@@ -63,6 +63,9 @@
                 {{ .Content }}
             </div>
             <br>
+            <small>Written on <a href="/written/{{ .Date.Format "2006-02-01" | lower}}">{{ .Date.Format "2"}}</a> 
+                <a href="/day/{{ .Date.Format "2006-02" | lower}}">{{ .Date.Format "January"}}</a>
+                <a href="/~cks/space/blog/2018/">2018</a>.</small> <br>
             <table border=0 width="100%">
                 <tr>
                     <td width="50%" style="padding-right: 0.5em">
