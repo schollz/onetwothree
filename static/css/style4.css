@@ -249,26 +249,6 @@ pre .ascii {
 	background-color:transparent;
 }
 
-blockquote {
-	font-style: italic;
-	background: #f9f9f9;
-	border-left: 10px solid #ccc;
-	margin: 1.5em 10px;
-	padding: 0.5em 10px;
-	quotes: "\201C""\201D""\2018""\2019";
-  }
-  blockquote:before {
-	color: #ccc;
-	content: open-quote;
-	font-size: 4em;
-	line-height: 0.1em;
-	margin-right: 0.25em;
-	vertical-align: -0.4em;
-  }
-  blockquote p {
-	display: inline;
-  }
-
   h1 {
 	font-size: 1.6em;
 }  
@@ -291,12 +271,12 @@ table {
 	width: 95%;
 }
 
-table tr + tr {
+/* table tr + tr {
 	border-top: 1px solid #ccc;
 }
 table td + td {
 	border-left: 1px solid #ccc;
-}
+} */
 
 table td {
 	padding: 0.4em;

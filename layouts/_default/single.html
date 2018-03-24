@@ -39,6 +39,14 @@ function ready(fn) {
     } else {
         document.addEventListener('DOMContentLoaded', fn);
     }
+
+      guestbook.innerHTML = "Loading ...";
+  var tag = document.createElement("script");
+  var message = encodeURIComponent(document.querySelector('#message').value);
+  var name = encodeURIComponent(document.querySelector('#name').value);
+  var email = encodeURIComponent(document.querySelector('#email').value);
+  tag.src = `${serverURL}/jsonp?callback=myCallback&message=${message}&name=${name}&email=${name}`;
+  document.querySelector("head").appendChild(tag);
 }
 window.onload = ready;
 </script>
@@ -56,6 +64,104 @@ window.onload = ready;
                 {{ .Content }}
             </div>
             <br>
+
+  
+<!-- Start of guestbook -->
+
+<div class="collapse" tabindex="1">
+        <a id="commenttoggle" href="#commentssection" onclick="toggle_visibility('commentssection');">Show comments</a>
+        <script type="text/javascript">
+            <!--
+                function toggle_visibility(id) {
+                   var e = document.getElementById(id);
+                   if(e.style.display == 'block') {
+                    e.style.display = 'none';
+                      document.getElementById("commenttoggle").innerText = "Show comments";
+                   }  else       {
+                    e.style.display = 'block';
+                    document.getElementById("commenttoggle").innerText = "Hide comments";
+                   }
+                }
+            //-->
+            </script>
+<div id="commentssection" style="display:none;">
+        <hr>
+
+        <div id="comments">
+        </div>
+
+         <!-- Guestbook form -->
+         <div class="guestbook-form">
+            <strong>Leave a comment:</strong>
+            <textarea rows='5' cols='75' id="message" name="message" class="guestbook"></textarea>
+            <br>
+            <table style="margin-bottom:0">
+                <tr>
+                    <td style="padding-right: 10px">
+                        <label for="name">Who are you?</label>
+                    </td>
+                    <td>
+                        <input id="name" class="guestbook" type="text" size=40 type="text" value=""> </td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px">
+                        <label for="whourl">(optional URL)</label>
+                    </td>
+                    <td>
+                        <input id="email" class="guestbook" size=40 type="url" value=""> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="guestbook-button" type="button" id="btn" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </div>
+            <!-- End of Guestbook form -->
+    
+        <script>
+            var serverURL = "https://guestbook.schollz.com"
+            var btn = document.getElementById("btn");
+            var guestbook = document.getElementById("comments");
+            var firstMessage = 0;
+    
+            function myCallback(acptlang) {
+                console.log(firstMessage);
+                console.log((acptlang.Message != "" && firstMessage == 1));
+                if (acptlang.Message != "" && firstMessage == 1) {
+                    alert(acptlang.Message);
+                    firstMessage = 1;
+                }
+    
+                console.log(acptlang);
+                guestbook.innerHTML = "";
+                console.log(acptlang.Entries.length);
+                for (var i = 0; i < acptlang.Entries.length; i++) {
+                    guestbook.innerHTML = guestbook.innerHTML +
+                        `<div class="comment">
+    <div class="entryid"> By ${acptlang.Entries[i].Name} on ${acptlang.Entries[i].DateString} in ${acptlang.Entries[i].Location}: </div>
+    <blockquote> <div class="wikitext">${acptlang.Entries[i].Message}
+    </div> </blockquote> </div>`
+    
+                }
+            }
+    
+            function jsonp() {
+                guestbook.innerHTML = "Loading ...";
+                var tag = document.createElement("script");
+                var message = encodeURIComponent(document.querySelector('#message').value);
+                var name = encodeURIComponent(document.querySelector('#name').value);
+                var email = encodeURIComponent(document.querySelector('#email').value);
+                tag.src = `${serverURL}/jsonp?callback=myCallback&message=${message}&name=${name}&email=${name}`;
+                document.querySelector("head").appendChild(tag);
+            }
+            btn.addEventListener("click", jsonp);
+        </script>
+    </div>
+    <br>
+</div>
+    <!-- END OF COMMENTS -->
+
             <small>Written on <a href="/written/{{ .Date.Format "2006-01-02" | lower}}">{{ .Date.Format "2"}}</a> 
                 <a href="/written/{{ .Date.Format "2006-01" | lower}}">{{ .Date.Format "January"}}</a>
                 <a href="/written/{{ .Date.Format "2006" | lower}}">{{ .Date.Format "2006"}}</a>.
@@ -70,17 +176,19 @@ window.onload = ready;
                 <br>
             <table border=0 width="100%">
                 <tr>
+                    {{ if .PrevInSection }}
                     <td width="50%" style="padding-right: 0.5em">
                         <table>
                             <tr>
                                 <td> &laquo; </td>
                                 <td>
-                                        {{ if .PrevInSection }}
-                                        <a href="{{ .PrevInSection.URL }}">{{ .PrevInSection.Title }}</a>&nbsp;{{end}}
+                                        
+                                        <a href="{{ .PrevInSection.URL }}">{{ .PrevInSection.Title }}</a>&nbsp;
                                 </td>
                             </tr>
                         </table>
                     </td>
+                    {{end}}
                     {{ if .NextInSection }}
                     <td width="50%" style="padding-left: 0.5em; border-left: 1px dotted;">
                         <table>
