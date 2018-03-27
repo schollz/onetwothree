@@ -1,7 +1,6 @@
 {{ partial "header.html" . }}
 
 
-<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
 <script>
 function fadeOut(el) {
   el.style.opacity = 1;
@@ -20,8 +19,8 @@ function fadeOut(el) {
 }
 function ready(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
-         el = document.getElementById('loadingMask');
-         fadeOut(el);
+         // el = document.getElementById('loadingMask');
+         // fadeOut(el);
         var elements = document.querySelectorAll("img");
         Array.prototype.forEach.call(elements, function(el, i) {
             if (el.getAttribute("alt")) {

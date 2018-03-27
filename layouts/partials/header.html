@@ -30,11 +30,308 @@
 	<!-- Open Graph - Article -->
 	<meta name="article:author" content="{{ $.Site.Params.twitter }}">
 	<meta name="article:tag" content="{{ range .Params.tags }}{{.}} {{end}}">
-	<link rel="stylesheet" type="text/css" href="/css/style{{ $.Site.Params.style }}.css">
-	<script src="/js/caption.js"></script>
 	<link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16" />
+<style>
+#header { font-size: small; }
+div.left { float: left; }
+div.right { float: right; }
 
+/* 
+ * This forces the entire top header to be separated from the content
+ * by some whitespace. Because the interior divs are both floated,
+ * we cannot reliably put the margin on the #header div itself. Instead
+ * we attach it to both floating divs. 1em is about one normal lineheight.
+ */
+#header > div { margin-bottom: 1em;}
+
+.clear { clear: both; }
+#documentbody { clear: both; }
+
+table.wikitable {
+	border-collapse: collapse;
+}
+.wikitable td {
+	border: 1px;
+	border-style: solid;
+	padding: .3em;
+	vertical-align: top;
+}
+
+.wikitext > h1, .wikitext > h2, .wikitext > h3, .wikitext > h4 {
+	margin-top: 0.5em;
+}
+
+.titlehack h1, .titlehack h2, .titlehack h3, .titlehack h4 {
+	margin-bottom: 0.1em;
+}
+
+/*
+ * horizontal tables in wikitext are funny because they also get the
+ * normal wikitext <td> CSS as well, so we have to override bits of
+ * it.
+ */
+.wikitext table.horizontal {
+	vertical-align: top;
+	border-collapse: collapse;
+}
+.wikitext table.horizontal td {
+	text-align: left;
+	border-style: dotted;
+	border-width: 0 0 1px 0;
+}
+.wikitext table.horizontal td + td {
+	padding-left: 1em;
+}
+.wikitext table.horizontal tr {
+	border-bottom: 1px dotted;
+}
+
+.comment .wikitext pre {
+	white-space: pre-wrap;
+}
+
+/*
+ * The bottom table whitespace should be about 1em, which we get
+ * through .5em bottom padding of the last row of <td>s plus
+ * .5em margin-bottom of the table itself.
+ */
+table.blogtitles {
+	border-collapse: collapse;
+	margin-bottom: .5em;
+}
+.blogtitles td {
+	vertical-align: top;
+	text-align: left;
+	padding-bottom: .5em;
+}
+.blogtitles td + td {
+	padding-left: 0.5em;
+}
+
+#atomfeeds {
+	font-size: small;
+	margin-top: .4em;
+	margin-bottom: .4em;
+}
+
+/*
+ The CSS based version of column layouts done with display: table-*.
+ We have multiple wrapping divs because you apparently can't attach
+ borders to 'display: table-row;' divs. .siderow && .mainrow divs
+ will become table rows in the minimized version and are table cells
+ in the normal one.
+ We also set a maximum width of the overall text column of about 45em
+ (76% of 60em); if you're on a really wide display you get a centered
+ column of text instead of hugely wide lines.
+
+ TODO: push top of sidebar down somehow without pushing down top of main
+ text.
+ http://stackoverflow.com/questions/16398823/why-does-a-div-with-display-table-cell-not-affected-by-margin
+*/
+.wttitle {
+	text-align: center;
+}
+
+.wtblog {
+	display: table;
+	max-width: 50em;
+	margin-left: auto;	margin-right: auto;
+}
+.maintext {
+	display: table-cell;	width: 76%;
+	padding: 1px 1.5em 1px 1px;
+}
+.sidebar {
+	display: table-cell;	width: 24%;
+	padding: 1px 1px 1px 0.5em;
+	border-left: 1px dotted;
+}
+
+/* Resize on small width and on the iPad Mini in portrait.
+   I don't know why the iPad Mini doesn't resize without an explicit
+   match but this is life in the CSS mines (instead it shrinks the
+   text size, NOT HELPFUL).
+   
+   aarg: http://stephen.io/mediaqueries/#iPadMini
+http://stackoverflow.com/questions/16262542/ipad-mini-specfic-css-media-queries
+*/
+@media only screen and (max-width: 45em),
+       only screen and (max-device-width: 45em),
+       only screen and (orientation: portrait) and (max-device-width: 50em) {
+	.wtblog {
+		display: block;
+	}
+	.maintext {
+		display: block;	width: auto;
+		padding: 0 1em 0 0.25em;
+	}
+	.sidebar {
+		display: block;	width: auto;
+		font-size: 80%;
+		padding: 0 0 0.5em 4px;
+		border-style: dotted none none;
+		border-width: 1px 0 0;
+		margin-top: 10px;
+	}
+	.sidesearch	{ display: none; }
+}
+
+/* On really small screens start deleting things */
+@media screen and (max-width: 25em) {
+	.right   {	display: none; }
+	.wttitle {	display: none; }
+}
+
+/* on the iPad Mini in portrait mode, enlarge text size. */
+@media only screen and (min-device-width: 768px) and
+       (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)
+       and (orientation: portrait) {
+	.maintext { font-size: 120%; padding: 0 1em 0 1em; }
+	.sidebar  { font-size: 100%; }
+}
+/* with a <meta> viewport, need to *shrink* the font size slightly on an
+   iPad Mini in landscape? */
+@media only screen and (min-device-width: 768px) and
+       (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)
+       and (orientation: landscape) {
+	.maintext, .sidebar { font-size: 90%; }
+}
+
+img {
+    width: 100%;
+    display: block;
+    vertical-align: top;
+    text-align: center;
+}
+
+figcaption {
+    color: #777;
+    font-style: italic;
+    text-align: center;
+}
+
+figure {
+	margin:0;
+    display: block;
+    /* border: 0.5px solid #303030; */
+}
+
+ a {border-bottom: 1px solid #444444; color: #444444; text-decoration: none;}
+            a:hover {border-bottom: 0;}
+
+body {
+	background: #fdfdfd; 
+	color: #222222;
+	line-height: 1.3;
+	text-shadow: 0 1px 0 #ffffff; 
+}
+
+h1,h2,h3 {
+	line-height:1.2;
+}
+
+
+
+code {
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    -o-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    white-space: pre-wrap;
+
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+
+    /* Opera 7 */
+    word-wrap: break-word;
+
+    /* Internet Explorer 5.5+ */
+}
+
+pre {
+    background: #f5f7f9;
+    margin-bottom: 20px;
+    vertical-align: text-bottom;
+    white-space: pre-wrap;
+
+    /* css-3 */
+    white-space: -moz-pre-wrap;
+
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+
+    /* Opera 7 */
+    word-wrap: break-word;
+
+    /* Internet Explorer 5.5+ */
+    padding: 1em;
+	max-width: 44em;
+	text-shadow: none;
+}
+
+pre .ascii {
+	background-color:transparent;
+}
+
+  h1 {
+	font-size: 1.6em;
+}  
+h2 {
+	font-size: 1.3em;
+}
+
+  
+h3 {
+	font-size: 1.1em;
+}
+
+.posttitle {
+	color: #aaaaaa;
+}
+
+table { 
+	margin-bottom: 1.5em;
+	border-collapse: collapse;
+	width: 95%;
+}
+
+/* table tr + tr {
+	border-top: 1px solid #ccc;
+}
+table td + td {
+	border-left: 1px solid #ccc;
+} */
+
+table td {
+	padding: 0.4em;
+	text-align: center;
+	-moz-hyphens: none;
+	-webkit-hyphens: none;
+	-o-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+table th {
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 95%;
+	padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+	line-height: 1.05;
+}
+
+</style>
 </head>
 <body>
 {{ if $.Site.Params.analytics }}
